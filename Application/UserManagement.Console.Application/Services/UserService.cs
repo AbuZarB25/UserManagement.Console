@@ -43,29 +43,34 @@ namespace UserManagement.Console.Application.Services
             return stringBuilder.ToString();
         }
 
-        public static bool UpdateUserInformation(User updatedUser)
+        //public static bool UpdateUserInformation(User updatedUser)
+        //{
+        //    User user = Users.Find(u => u.PersonId == (updatedUser.PersonId));
+
+        //    if (user != null)
+        //    {
+
+        //      user.FirstName = updatedUser.FirstName;
+        //      user.LastName = updatedUser.LastName;
+        //      user.EmailAddress = updatedUser.EmailAddress;
+        //      user.DateOfBirth = updatedUser.DateOfBirth;
+        //      user.PhoneNumber = updatedUser.PhoneNumber;
+        //      user.JobRole = updatedUser.JobRole;
+
+
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+        public static User FindUserByID(int userID) 
         {
-            User user = Users.Find(u => u.PersonId == (updatedUser.PersonId));
+           var user = Users.FirstOrDefault(u => u.PersonId == userID);
 
-            if (user != null)
-            {
-                
-              user.FirstName = updatedUser.FirstName;
-              user.LastName = updatedUser.LastName;
-              user.EmailAddress = updatedUser.EmailAddress;
-              user.DateOfBirth = updatedUser.DateOfBirth;
-              user.PhoneNumber = updatedUser.PhoneNumber;
-              user.JobRole = updatedUser.JobRole;
-
-
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return user;
         }
-
         public static string UserSearch(User user) 
         {
             User userToFind = Users.Find(u => u.FirstName == user.FirstName && u.EmailAddress == user.EmailAddress);

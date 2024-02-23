@@ -84,22 +84,23 @@ do
             break;
 
         case "5":
-            User updatedUser = new User();
-            Console.WriteLine("Enter Your Updated First Name:");
+            string userList = UserService.DisplayUsers();
+            Console.WriteLine(userList);
+            Console.WriteLine("Enter the id of the user that you would like to update:");
+            int id = int.Parse( Console.ReadLine() );
+            User updatedUser = UserService.FindUserByID(id);
+            Console.WriteLine("Enter The Updated First Name:");
             updatedUser.FirstName = Console.ReadLine();
-            Console.WriteLine("Enter Your Updated Last Name:");
+            Console.WriteLine("Enter The Updated Last Name:");
             updatedUser.LastName = Console.ReadLine();
-            Console.WriteLine("Enter Your Updated Date Of Birth (YYYY/MM/DD):");
-            updatedUser.DateOfBirth = Console.ReadLine();
-            Console.WriteLine("Enter Your Updated Email Address:");
+            Console.WriteLine("Enter The New Email Address:");
             updatedUser.EmailAddress = Console.ReadLine();
-            Console.WriteLine("Enter Your Updated Phone Number:");
+            Console.WriteLine("Enter Your Updated Date Of Birth  (YYYY/MM/DD):");
+            updatedUser.DateOfBirth = Console.ReadLine();
+            Console.WriteLine("Enter Your Updated Phone Number");
             updatedUser.PhoneNumber = Console.ReadLine();
-            Console.WriteLine("Enter Your Updated Job Role:");
+            Console.WriteLine("Enter The Updated Job Role");
             updatedUser.JobRole = Console.ReadLine();
-            UserService.UpdateUserInformation(updatedUser);
-            Console.WriteLine("Press the Enter key to continue.");
-            readResult = Console.ReadLine();
             break;
 
         case "6":
