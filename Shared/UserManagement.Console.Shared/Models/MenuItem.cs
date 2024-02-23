@@ -8,6 +8,12 @@
   /// </remarks>
   public class MenuItem
   {
+
+    public MenuItem(int menuItemID, string menuItemDescription) 
+    {
+        this.MenuItemId = menuItemID;
+        this.MenuItemDescription = menuItemDescription;
+    }
     /// <summary>
     /// Gets or sets the Menu Item Id.
     /// </summary>
